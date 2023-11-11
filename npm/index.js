@@ -71,8 +71,6 @@ class Interval {
 
             currentTime = Date.parse(thisClass.pausedTime); // Get the paused time
 
-            console.log((thisClass.endTime - currentTime) / 60000);
-
             thisClass.endTime = Math.abs(thisClass.endTime + Date.parse(new Date()) - currentTime);
 
             thisClass.pausedTime = null;
@@ -81,8 +79,6 @@ class Interval {
         if (endTime > currentTime) {
 
             let timeleft = Math.abs(endTime - currentTime) / 1000;
-
-            console.log(timeleft / 60);
 
             let result = parseInt(timeleft / 60) + ':' + parseInt(timeleft % 60); //formart seconds into 00:00 
 
@@ -112,8 +108,6 @@ class Interval {
         clearInterval(this.time);
 
         this.pausedTime = new Date;
-
-        console.log(this.pausedTime);
 
         this.onPaused(); // Method to run when interval stopped.
     }
@@ -145,3 +139,5 @@ class Interval {
     }
 
 }
+
+export default Interval;
