@@ -11,7 +11,7 @@ class Interval {
 
         this.pausedTime = null;
 
-        this.endTime = Math.abs(Date.parse(new Date()) + data.duration * 60 * 1000);
+        this.endTime = null;
 
         this.time = null;
 
@@ -100,6 +100,8 @@ class Interval {
 
     start() {
 
+        this.endTime = Math.abs(Date.parse(new Date()) + this.duration * 60 * 1000);
+
         this.time = setInterval(this.timer, this.delay, this);
 
         this.onStart(); // Method to run when interval started.
@@ -122,6 +124,10 @@ class Interval {
 
         this.time = null;
 
+        this.endTime = Math.abs(Date.parse(new Date()) + 1000);
+
+        this.time = setInterval(this.timer, this.delay, this);
+
         this.onReset(); // Method to run when interval reset.
     }
 
@@ -130,6 +136,8 @@ class Interval {
         clearInterval(this.time);
 
         this.time = null;
+
+        this.endTime = Math.abs(Date.parse(new Date()) + this.duration * 60 * 1000);
 
         this.time = setInterval(this.timer, this.delay, this);
 

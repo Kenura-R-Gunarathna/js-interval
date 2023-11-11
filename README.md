@@ -2,7 +2,7 @@
 
 Using this library you can create countdown for a specific task to happen, like for sms, otp an demail verifications, and live chats etc.
 
-```
+```js
 const interval = new Interval({
     counter: '#counter',
     delay: 1000,
@@ -31,6 +31,8 @@ const interval = new Interval({
 
 ## Properties
 
+You can update or read these property values.
+
 ### counter : property
 
 This defines the targeted element you want to update the content.
@@ -41,29 +43,70 @@ id : '#count'
 
 tagname : 'div'
 
+```js
+interval.counter;
+```
+
 ### delay : property
 
 Defines the refresh rate of the `setInterval` method.
+
+```js
+interval.delay;
+```
 
 ### duration : property
 
 Defines how long you want to run the function. This should be in `seconds`. But by few modifications you can convert it to seconds, mili-seconds or hours etc.
 
+```js
+interval.duration;
+```
+
+## Options
+
+### onStart : option
+
+You can run any actions when the `setInterval` started.
+
+### onEnd : option
+
+You can run any actions when the `setInterval` ends due to timeout.
+
+### onPaused : option
+
+You can run any actions when the `setInterval` is paused.
+
+### onReset : option
+
+You can run any actions when the `setInterval` is reset. This will bring the countdown to `initial` time. But it won't start the countdown.
+
+### onRestart : option
+
+You can run any actions when the `setInterval` is restarted.
+
 ## Methods
 
-### onStart : method
+### start : method
 
-You can run any actions when the `setInterval` method started.
+```js
+interval.start();
+```
 
-### onEnd : method
+### pause : method
 
-You can run any actions when the `setInterval` method ends due to timeout.
+```js
+interval.pause();
+```
 
-### onPaused : method
+### reset : method
 
-You can run any actions when the `setInterval` method is paused.
+```js
+interval.reset();
+```
 
-### onReset : method
+### restart : method
 
-You can run any actions when the `setInterval` method is reset. This will bring the countdown to `initial` time. But it won't start the countdown.
-
+```js
+interval.restart();
+```
