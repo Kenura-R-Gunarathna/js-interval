@@ -29,6 +29,8 @@ const interval = new Interval({
 });
 ```
 
+<img src="./github.png" alt="Interval screenshot" width="100%">
+
 ## Properties
 
 You can update or read these property values.
@@ -67,27 +69,29 @@ interval.duration;
 
 ### onStart : option
 
-You can run any actions when the `setInterval` started.
+You can run any actions when the `setInterval started`.
 
 ### onEnd : option
 
-You can run any actions when the `setInterval` ends due to timeout.
+You can run any actions when the `setInterval ends` due to timeout.
 
 ### onPaused : option
 
-You can run any actions when the `setInterval` is paused.
+You can run any actions when the `setInterval is paused`.
 
 ### onReset : option
 
-You can run any actions when the `setInterval` is reset. This will bring the countdown to `initial` time. But it won't start the countdown.
+You can run any actions when the `setInterval is reset`. This will bring the countdown to `initial` time. But it won't start the countdown.
 
 ### onRestart : option
 
-You can run any actions when the `setInterval` is restarted.
+You can run any actions when the `setInterval is restarted`.
 
 ## Methods
 
 ### start : method
+
+Start the timer function. But the initial `0:0` won't be shown.
 
 ```js
 interval.start();
@@ -95,11 +99,15 @@ interval.start();
 
 ### pause : method
 
+Pause the timer function.
+
 ```js
 interval.pause();
 ```
 
 ### reset : method
+
+Reset the timer function. It will output the `0:0` initially.
 
 ```js
 interval.reset();
@@ -107,6 +115,10 @@ interval.reset();
 
 ### restart : method
 
+Restart the timer function.
+
 ```js
 interval.restart();
 ```
+
+Thank you, @Kenura R.Gunarathna.
