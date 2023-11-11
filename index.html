@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
+        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="counter"></div>
+    
+    <button id="sendButton">Send OTP</button>
+
+    <button id="resendButton">Resend OTP</button>
+
+    <script>
+
+        $(function () {
+
+            var duration = 2; // Get the time duration in minutes.
+
+            function OTPTimer(endTime) { 
+                
+                let currentTime = new Date(); // Get the current time.
+
+                if (endTime > currentTime) {
+
+                    $('#resendButton').hide();
+
+                    $('#counter').show();
+
+                    let timeleft = Math.abs(endTime - currentTime) / 1000;
+
+                    console.log(timeleft / 60);
+
+                    console.log(new Date(endTime));
+
+                    let result = parseInt(timeleft / 60) + ':' + parseInt(timeleft % 60); //formart seconds into 00:00 
+
+                    $('#counter').html(result);
+
+                } else {
+
+                    $('#resendButton').show();
+
+                    $('#counter').hide();
+
+                }
+
+            }
+
+            var timer;
+
+            $('#resendButton').hide();
+
+            $('#sendButton').on('click', function () {
+
+                let now = new Date(); // Get the current time.
+
+                let endTime = Math.abs(Date.parse(now) + duration * 60 * 1000); // Calculate the future time.
+
+                timer = setInterval(OTPTimer, 1000, endTime);
+
+                $(this).hide();
+
+            });
+
+            $('#resendButton').on('click', function() {
+
+                var now = new Date(); // Get the current time.
+
+                let endTime = Math.abs(Date.parse(now) + duration * 60 * 1000); // Calculate the future time.
+
+                clearInterval(timer);
+
+                timer = null;
+
+                timer = setInterval(OTPTimer, 1000, endTime);
+                
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
