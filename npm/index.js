@@ -82,7 +82,7 @@ class Interval {
 
             let result = parseInt(timeleft / 60) + ':' + parseInt(timeleft % 60); //formart seconds into 00:00 
 
-            document.querySelector('#counter').innerHTML = result;
+            console.log(result);
 
         } else {
 
@@ -140,4 +140,4 @@ class Interval {
 
 }
 
-export default Interval;
+module.exports = Interval;
